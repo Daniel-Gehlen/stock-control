@@ -44,7 +44,7 @@ docker-compose.override.yml
 *.dockerfile
 
 # 5. Ignorar outros arquivos de backup e editor de texto
-*~ 
+*~
 *.swp
 *.bak
 *.tmp
@@ -53,3 +53,41 @@ docker-compose.override.yml
 # 6. Ignorar arquivos de dependência de desenvolvimento (caso utilize Webpack ou outros bundlers)
 /public/build/
 /public/dist/
+
+# 7. Ignorar arquivos específicos do .NET
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# 8. Ignorar arquivos de configuração local
+appsettings.Development.json
+appsettings.Local.json
+*.user
+
+# 9. Ignorar documentação local (apenas análise)
+ANALISE_PROJETO.md
+PLANO_IMPLEMENTACAO.md
+
+# 10. Ignorar arquivos de IDE
+.vs/
+*.suo
+*.userosscache
+*.sln.docstates
+
+# 11. Ignorar arquivos de build do .NET
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+bld/
+[Bb]in/
+[Oo]bj/
+
+SKILLS.md

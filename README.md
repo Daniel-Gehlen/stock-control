@@ -1,105 +1,107 @@
-# Sistema de Controle de Estoque
+# Stock Control API
 
-## Visão Geral Técnica
+API para controle de estoque de produtos desenvolvida com ASP.NET Core 6.0.
 
-### Arquitetura
-- Arquitetura limpa com separação de camadas
-- Backend: API RESTful em .NET
-- Frontend: SPA com Vue.js 3 e Nuxt.js
+## 🚀 Funcionalidades Implementadas
 
-### Tecnologias Principais
-- Backend: 
-  - C# .NET Core
-  - Entity Framework Core
-  - SQL Server
+### ✅ Configuração e Documentação
+- Configuração externalizada (`appsettings.json`)
+- Swagger/OpenAPI para documentação da API
+- CORS configurado para permitir requisições de qualquer origem
 
-- Frontend:
-  - Vue.js 3
-  - Nuxt.js
-  - Vuetify
-  - TypeScript
-  - Axios para comunicação API
+### ✅ Validação e Padrões
+- DataAnnotations em todos os models
+- DTOs para padronização de dados
+- Response Wrapper padronizado (`ApiResponse<T>`)
+- Paginação implementada (`PaginatedResponse<T>`)
 
-### Padrões e Práticas
-- Desenvolvimento guiado por modelo de domínio
-- Injeção de dependência
-- Princípios SOLID
-- Tratamento de nulos
-- Validações de dados
-- Mapeamento de entidades
+### ✅ API REST Completa
+- **Produtos**: CRUD completo com paginação, filtros e busca
+- **Categorias**: CRUD completo
+- **Estoques**: Listagem, consulta por ID/produto, alertas de estoque baixo
+- **Movimentações**: Registro, listagem, filtros por data/tipo, resumo
 
-### Estrutura do Projeto
-```
-StockControl/
-│
-├── Backend/
-│   ├── Controllers/
-│   ├── Models/
-│   ├── Services/
-│   └── Data/
-│
-└── Frontend/
-    ├── pages/
-    ├── components/
-    └── layouts/
-```
+### ✅ Tratamento de Erros
+- Middleware global de exception handling
+- Respostas de erro padronizadas
+- Validação robusta de entrada
 
-## Principais Componentes
+### ✅ Funcionalidades de Negócio
+- Alertas de estoque baixo (baseado em `QuantidadeMinima`)
+- Resumo de movimentações (entradas/saídas/saldo)
+- Filtros avançados por data, tipo, produto
+- Paginação em todos os endpoints de listagem
 
-### Modelo de Dados
-- Produto
-- Categoria
-- Estoque
-- Movimentação
+## 📋 Endpoints da API
 
-### API Endpoints
-- CRUD Produtos
-- Gerenciamento de Estoque
-- Registro de Movimentações
+### Produtos (`/api/produtos`)
+- `GET` - Listar produtos (paginação, busca, filtro por categoria)
+- `GET /{id}` - Obter produto por ID
+- `POST` - Criar produto
+- `PUT /{id}` - Atualizar produto
+- `DELETE /{id}` - Deletar produto
 
-### Interface
-- Lista de Produtos
-- Cadastro/Edição
-- Controle de Movimentação
-- Dashboard de Estoque
+### Categorias (`/api/categorias`)
+- `GET` - Listar categorias
+- `GET /{id}` - Obter categoria por ID
+- `POST` - Criar categoria
+- `PUT /{id}` - Atualizar categoria
+- `DELETE /{id}` - Deletar categoria
 
-## Casos de Uso
+### Estoques (`/api/estoques`)
+- `GET` - Listar estoques (paginação, filtro estoque baixo)
+- `GET /{id}` - Obter estoque por ID
+- `GET /produto/{produtoId}` - Obter estoque por produto
+- `GET /alertas` - Produtos com estoque baixo
 
-1. **Gerenciamento de Produtos**
-   - Cadastrar novo produto
-   - Editar informações de produto
-   - Consultar catálogo de produtos
+### Movimentações (`/api/movimentacoes`)
+- `GET` - Listar movimentações (paginação, filtros)
+- `GET /{id}` - Obter movimentação por ID
+- `POST` - Registrar movimentação (entrada/saída)
+- `GET /produto/{produtoId}` - Movimentações por produto
+- `GET /resumo` - Resumo de entradas/saídas
 
-2. **Controle de Estoque**
-   - Registrar entrada de mercadoria
-   - Registrar saída de mercadoria
-   - Verificar níveis de estoque
-   - Alertar sobre estoque mínimo
+## 🛠️ Tecnologias
 
-3. **Movimentação**
-   - Rastrear histórico de movimentações
-   - Gerar relatórios de movimento
-   - Identificar fluxo de produtos
-
-4. **Categorização**
-   - Classificar produtos
-   - Agrupar por categorias
-   - Análise por categoria
-
-## Boas Práticas Implementadas
-- Validação de dados
-- Tratamento de exceções
-- Logs de movimentação
-- Segurança de endpoints
-- Modelo de dados consistente
-
-## Próximos Passos
-- Implementar autenticação
-- Adicionar relatórios avançados
-- Melhorar validações
-- Testes unitários
-
-## Requisitos
-- .NET 7+
-- Node.js 16+
+- ASP.NET Core 6.0
+- Entity Framework Core
 - SQL Server
+- Swagger/OpenAPI
+- C#
+
+## 📦 Como Executar
+
+1. Clone o repositório
+2. Configure a connection string em `appsettings.json`
+3. Execute as migrations:
+   ```bash
+   dotnet ef database update
+   ```
+4. Execute a API:
+   ```bash
+   dotnet run
+   ```
+5. Acesse a documentação Swagger em: `https://localhost:5001`
+
+## 📊 Estrutura do Banco de Dados
+
+- **Produtos**: Nome, código, preços de compra/venda
+- **Categorias**: Nome, descrição
+- **Estoques**: Quantidade atual/mínima, última atualização
+- **Movimentações**: Tipo (entrada/saída), quantidade, data, observações
+
+## 🔒 Validações
+
+- Todos os campos obrigatórios validados
+- Preços devem ser maiores que zero
+- Quantidades não podem ser negativas
+- Tipos de movimentação: "Entrada" ou "Saída"
+- Validação de estoque insuficiente para saídas
+
+## 📝 Próximos Passos
+
+- [ ] Autenticação e autorização (JWT)
+- [ ] Testes unitários e de integração
+- [ ] Logging estruturado
+- [ ] Cache para melhor performance
+- [ ] Frontend em React/Vue
