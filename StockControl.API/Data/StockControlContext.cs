@@ -9,6 +9,7 @@ namespace StockControl.API.Data
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<Movimentacao> Movimentacoes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
