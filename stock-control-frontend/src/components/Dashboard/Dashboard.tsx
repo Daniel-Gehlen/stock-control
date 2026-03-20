@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.css';
 
 const Dashboard: React.FC = () => {
@@ -48,11 +48,35 @@ const Dashboard: React.FC = () => {
     { id: 4, product: 'Monitor LG', type: 'Saída', quantity: 2, time: '2 horas atrás' },
   ];
 
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const handleViewAllProducts = () => {
+    setActiveSection('products');
+    alert('Navegando para lista completa de produtos...');
+    // Aqui você implementaria a navegação real
+  };
+
+  const handleViewAllMovements = () => {
+    setActiveSection('movements');
+    alert('Navegando para lista completa de movimentações...');
+    // Aqui você implementaria a navegação real
+  };
+
+  const handleRefreshData = () => {
+    alert('Dados atualizados com sucesso!');
+    // Aqui você implementaria a atualização real dos dados
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">Dashboard</h1>
-        <p className="dashboard-subtitle">Visão geral do seu estoque</p>
+        <div>
+          <h1 className="dashboard-title">Dashboard</h1>
+          <p className="dashboard-subtitle">Visão geral do seu estoque</p>
+        </div>
+        <button className="btn btn-primary" onClick={handleRefreshData}>
+          🔄 Atualizar Dados
+        </button>
       </div>
 
       {/* Cards de estatísticas */}
@@ -76,7 +100,9 @@ const Dashboard: React.FC = () => {
         <div className="dashboard-card">
           <div className="card-header">
             <h3 className="card-title">Produtos Recentes</h3>
-            <button className="btn btn-secondary btn-sm">Ver todos</button>
+            <button className="btn btn-secondary btn-sm" onClick={handleViewAllProducts}>
+              Ver todos
+            </button>
           </div>
           <div className="card-body">
             <div className="table-container">
@@ -117,7 +143,9 @@ const Dashboard: React.FC = () => {
         <div className="dashboard-card">
           <div className="card-header">
             <h3 className="card-title">Movimentações Recentes</h3>
-            <button className="btn btn-secondary btn-sm">Ver todas</button>
+            <button className="btn btn-secondary btn-sm" onClick={handleViewAllMovements}>
+              Ver todas
+            </button>
           </div>
           <div className="card-body">
             <div className="movements-list">

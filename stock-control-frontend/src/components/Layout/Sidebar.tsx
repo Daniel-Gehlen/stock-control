@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -6,11 +6,13 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
+  const [activeItem, setActiveItem] = useState('/');
+
   const menuItems = [
     {
       section: 'Principal',
       items: [
-        { icon: '📊', label: 'Dashboard', href: '/', active: true },
+        { icon: '📊', label: 'Dashboard', href: '/' },
         { icon: '📦', label: 'Produtos', href: '/produtos' },
         { icon: '🏷️', label: 'Categorias', href: '/categorias' },
         { icon: '🏭', label: 'Estoques', href: '/estoques' },
@@ -25,6 +27,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
       ]
     }
   ];
+
+  const handleItemClick = (href: string, label: string) => {
+    setActiveItem(href);
+    alert(`Navegando para: ${label}\n\nRota: ${href}`);
+    // Aqui você implementaria a navegação real
+  };
 
   return (
     <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
@@ -47,7 +55,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
                 <li key={itemIndex}>
                   <a
                     href={item.href}
-                    className={`sidebar-menu-item ${item.active ? 'active' : ''}`}
+                    className={`sidebar-menu-item ${activeItem === item.href ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleItemClick(item.href, item.label);
+                    }}
                   >
                     <span className="sidebar-menu-icon">{item.icon}</span>
                     <span className="sidebar-menu-label">{item.label}</span>
