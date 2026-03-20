@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 import './Configuracoes.css';
 
 interface Configuracao {
@@ -14,6 +15,7 @@ const Configuracoes: React.FC = () => {
   const [configuracoes, setConfiguracoes] = useState<Configuracao[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<number | null>(null);
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     carregarConfiguracoes();
@@ -39,6 +41,12 @@ const Configuracoes: React.FC = () => {
     }, 800);
   };
 
+  const handleChange = (id: number, valor: string) => {
+    setConfiguracoes(prev => prev.map(c =>
+      c.id === id ? { ...c, valor } : c
+    ));
+  };
+
   const handleSalvar = async (configuracao: Configuracao) => {
     setSaving(configuracao.id);
 
@@ -47,15 +55,15 @@ const Configuracoes: React.FC = () => {
       setConfiguracoes(prev => prev.map(c =>
         c.id === configuracao.id ? configuracao : c
       ));
+
+      // Aplicar tema se for configuração de tema
+      if (configuracao.chave === 'tema') {
+        setTheme(configuracao.valor);
+      }
+
       setSaving(null);
       alert('Configuração salva com sucesso!');
     }, 1000);
-  };
-
-  const handleChange = (id: number, valor: string) => {
-    setConfiguracoes(prev => prev.map(c =>
-      c.id === id ? { ...c, valor } : c
-    ));
   };
 
   const renderInput = (configuracao: Configuracao) => {
