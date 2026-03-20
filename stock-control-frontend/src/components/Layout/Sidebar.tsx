@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -6,7 +7,8 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
-  const [activeItem, setActiveItem] = useState('/');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
     {
@@ -28,10 +30,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
     }
   ];
 
-  const handleItemClick = (href: string, label: string) => {
-    setActiveItem(href);
-    alert(`Navegando para: ${label}\n\nRota: ${href}`);
-    // Aqui você implementaria a navegação real
+  const handleItemClick = (href: string) => {
+    navigate(href);
+    if (window.innerWidth < 768) {
+      onToggle();
+    }
   };
 
   return (
@@ -55,10 +58,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
                 <li key={itemIndex}>
                   <a
                     href={item.href}
-                    className={`sidebar-menu-item ${activeItem === item.href ? 'active' : ''}`}
+                    className={`sidebar-menu-item ${location.pathname === item.href ? 'active' : ''}`}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleItemClick(item.href, item.label);
+                      handleItemClick(item.href);
                     }}
                   >
                     <span className="sidebar-menu-icon">{item.icon}</span>
