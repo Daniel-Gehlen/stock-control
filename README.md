@@ -1,6 +1,6 @@
 # Stock Control API
 
-API para controle de estoque de produtos desenvolvida com ASP.NET Core 6.0.
+API para controle de estoque de produtos desenvolvida com ASP.NET Core 8.0.
 
 ## 🚀 Funcionalidades Implementadas
 
@@ -32,6 +32,13 @@ API para controle de estoque de produtos desenvolvida com ASP.NET Core 6.0.
 - Filtros avançados por data, tipo, produto
 - Paginação em todos os endpoints de listagem
 
+### ✅ Autenticação e Autorização
+- Sistema de autenticação JWT completo
+- Modelo de usuário com roles (Admin, Operador, Visualizador)
+- Endpoints de login e registro
+- Hash de senhas com SHA256
+- Tokens JWT com expiração de 24 horas
+
 ## 📋 Endpoints da API
 
 ### Produtos (`/api/produtos`)
@@ -61,13 +68,20 @@ API para controle de estoque de produtos desenvolvida com ASP.NET Core 6.0.
 - `GET /produto/{produtoId}` - Movimentações por produto
 - `GET /resumo` - Resumo de entradas/saídas
 
+### Autenticação (`/api/auth`)
+- `POST /login` - Realizar login com email e senha
+- `POST /registro` - Registrar novo usuário
+- `GET /perfil` - Obter perfil do usuário autenticado
+
 ## 🛠️ Tecnologias
 
-- ASP.NET Core 6.0
+- ASP.NET Core 8.0
 - Entity Framework Core
 - SQL Server
 - Swagger/OpenAPI
 - C#
+- JWT Bearer 8.0.0
+- xUnit (testes)
 
 ## 📦 Como Executar
 
@@ -100,8 +114,8 @@ API para controle de estoque de produtos desenvolvida com ASP.NET Core 6.0.
 
 ## 📝 Próximos Passos
 
-- [ ] Autenticação e autorização (JWT)
-- [ ] Testes unitários e de integração
+- [x] Autenticação e autorização (JWT)
+- [x] Testes unitários e de integração
 - [ ] Logging estruturado
 - [ ] Cache para melhor performance
 - [ ] Frontend em React/Vue
