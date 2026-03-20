@@ -71,8 +71,64 @@ appsettings.Local.json
 *.user
 
 # 9. Ignorar documentação local (apenas análise)
+ANALISE_COMPLETA_PROJETO.md
 ANALISE_PROJETO.md
 PLANO_IMPLEMENTACAO.md
+
+# 10. Ignorar arquivos de instalação local
+dotnet-install.sh
+
+# 11. Ignorar arquivos de backup e temporários
+*.bak
+*.tmp
+*.swp
+*~
+
+# 12. Ignorar pasta .vs (Visual Studio)
+.vs/
+
+# 13. Ignorar arquivos de log
+*.log
+logs/
+
+# 14. Ignorar arquivos de cache do npm (se houver frontend)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 15. Ignorar arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# 16. Ignorar arquivos de cobertura de testes
+coverage/
+*.cover
+*.py,cover
+.coverage
+.coverage.*
+htmlcov/
+
+# 17. Ignorar arquivos de build
+dist/
+build/
+*.tgz
+
+# 18. Ignorar arquivos do macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 19. Ignorar arquivos do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 20. Ignorar arquivos do Linux
+*~
+.fuse.hidden*
+.directory
+.Trash-*
 
 # 10. Ignorar arquivos de IDE
 .vs/
