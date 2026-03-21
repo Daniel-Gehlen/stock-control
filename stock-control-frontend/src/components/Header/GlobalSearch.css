@@ -20,17 +20,18 @@
 .search-input {
   width: 100%;
   padding: 10px 40px 10px 40px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-color);
   border-radius: 25px;
   font-size: 14px;
   transition: all 0.3s ease;
-  background: #f8f9fa;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3498db;
-  background: white;
+  border-color: var(--primary-color);
+  background: var(--bg-primary);
   box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
 }
 
@@ -69,10 +70,10 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid #e0e0e0;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
   margin-top: 8px;
   z-index: 1000;
   overflow: hidden;
@@ -95,10 +96,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
   font-size: 12px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .results-count {
@@ -117,7 +118,7 @@
   padding: 12px 16px;
   cursor: pointer;
   transition: background 0.2s;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .search-result-item:last-child {
@@ -125,7 +126,7 @@
 }
 
 .search-result-item:hover {
-  background: #f8f9fa;
+  background: var(--bg-secondary);
 }
 
 .result-icon {
@@ -136,8 +137,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f0f0;
+  background: var(--bg-secondary);
   border-radius: 8px;
+  color: var(--primary-color);
 }
 
 .result-content {
@@ -147,7 +149,7 @@
 
 .result-title {
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   font-size: 14px;
   margin-bottom: 2px;
   white-space: nowrap;
@@ -157,7 +159,7 @@
 
 .result-subtitle {
   font-size: 12px;
-  color: #666;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -170,8 +172,8 @@
 .type-badge {
   display: inline-block;
   padding: 4px 8px;
-  background: #e9ecef;
-  color: #666;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
   border-radius: 12px;
   font-size: 10px;
   font-weight: 600;
@@ -181,11 +183,11 @@
 
 .search-results-footer {
   padding: 8px 16px;
-  background: #f8f9fa;
-  border-top: 1px solid #e0e0e0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
   text-align: center;
   font-size: 11px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 /* Responsive */

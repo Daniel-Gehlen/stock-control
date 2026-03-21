@@ -16,13 +16,13 @@
 .header-content h1 {
   font-size: 28px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
 }
 
 .header-content p {
   font-size: 16px;
-  color: #666;
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -85,11 +85,12 @@
 }
 
 .configuracao-card {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border-color);
 }
 
 .configuracao-card:hover {
@@ -107,7 +108,7 @@
 .configuracao-header h3 {
   font-size: 16px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
   flex: 1;
 }
@@ -124,7 +125,7 @@
 
 .configuracao-descricao {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
   margin: 0 0 16px 0;
   line-height: 1.5;
 }
@@ -138,11 +139,13 @@
 .configuracao-input select {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;
   transition: border-color 0.2s;
   box-sizing: border-box;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .configuracao-input input:focus,
@@ -236,16 +239,17 @@ input:checked + .toggle-slider:before {
 
 /* Info Section */
 .configuracoes-info {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
 }
 
 .configuracoes-info h2 {
   font-size: 20px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0 0 24px 0;
 }
 
@@ -256,16 +260,17 @@ input:checked + .toggle-slider:before {
 }
 
 .info-card {
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   border-radius: 8px;
   padding: 16px;
   text-align: center;
+  border: 1px solid var(--border-color);
 }
 
 .info-card h4 {
   font-size: 14px;
   font-weight: 600;
-  color: #666;
+  color: var(--text-secondary);
   margin: 0 0 8px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -274,7 +279,7 @@ input:checked + .toggle-slider:before {
 .info-card p {
   font-size: 18px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin: 0;
 }
 

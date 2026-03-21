@@ -19,8 +19,8 @@ body {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  color: var(--gray-800);
-  background-color: var(--gray-50);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
 /* Links */
@@ -38,7 +38,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
-  color: var(--gray-900);
+  color: var(--text-primary);
 }
 
 h1 { font-size: var(--font-size-4xl); }
@@ -90,13 +90,13 @@ p {
 
 /* Botão secundário */
 .btn-secondary {
-  background-color: white;
-  color: var(--gray-700);
-  border-color: var(--gray-300);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--gray-50);
+  background-color: var(--bg-tertiary);
   border-color: var(--gray-400);
 }
 
@@ -145,7 +145,7 @@ p {
   margin-bottom: var(--spacing-2);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--gray-700);
+  color: var(--text-secondary);
 }
 
 .form-input,
@@ -156,9 +156,9 @@ p {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
-  color: var(--gray-800);
-  background-color: white;
-  border: 1px solid var(--gray-300);
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -190,15 +190,15 @@ p {
 
 /* Cards */
 .card {
-  background-color: white;
-  border: 1px solid var(--gray-200);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-sm);
 }
 
 .card-header {
   padding: var(--spacing-4) var(--spacing-6);
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .card-body {
@@ -207,8 +207,8 @@ p {
 
 .card-footer {
   padding: var(--spacing-4) var(--spacing-6);
-  border-top: 1px solid var(--gray-200);
-  background-color: var(--gray-50);
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
   border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
 }
 
@@ -252,7 +252,7 @@ p {
 .table-container {
   overflow-x: auto;
   border-radius: var(--border-radius-xl);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-color);
 }
 
 .table {
@@ -265,17 +265,17 @@ p {
 .table td {
   padding: var(--spacing-3) var(--spacing-4);
   text-align: left;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .table th {
-  background-color: var(--gray-50);
+  background-color: var(--bg-secondary);
   font-weight: var(--font-weight-semibold);
-  color: var(--gray-700);
+  color: var(--text-secondary);
 }
 
 .table tbody tr:hover {
-  background-color: var(--gray-50);
+  background-color: var(--bg-secondary);
 }
 
 .table tbody tr:last-child td {
@@ -364,9 +364,9 @@ p {
 .text-error-600 { color: var(--error-600); }
 .text-warning-600 { color: var(--warning-600); }
 
-.bg-white { background-color: white; }
-.bg-gray-50 { background-color: var(--gray-50); }
-.bg-gray-100 { background-color: var(--gray-100); }
+.bg-white { background-color: var(--bg-primary); }
+.bg-gray-50 { background-color: var(--bg-secondary); }
+.bg-gray-100 { background-color: var(--bg-tertiary); }
 
 .flex { display: flex; }
 .flex-col { flex-direction: column; }

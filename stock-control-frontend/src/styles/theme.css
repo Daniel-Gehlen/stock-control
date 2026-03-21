@@ -124,6 +124,12 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+/* Garante que o fundo da aplicação inteira mude */
+#root, .app {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
 /* Componentes que usam variáveis de tema */
 .configuracao-card,
 .dashboard-section,
@@ -132,29 +138,35 @@ body {
 .empty-state,
 .categoria-card,
 .summary-card,
-.info-card {
-  background-color: var(--bg-primary);
-  border-color: var(--border-color);
+.info-card,
+.stat-card,
+.card {
+  background-color: var(--bg-primary) !important;
+  border-color: var(--border-color) !important;
   box-shadow: var(--shadow-sm);
+  color: var(--text-primary) !important;
 }
 
 .configuracao-card:hover,
 .categoria-card:hover,
-.summary-card:hover {
+.summary-card:hover,
+.stat-card:hover {
   box-shadow: var(--shadow-md);
 }
 
-.data-table th {
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
+.data-table th, .table th {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-bottom-color: var(--border-color) !important;
 }
 
-.data-table td {
-  border-bottom-color: var(--border-light);
+.data-table td, .table td {
+  border-bottom-color: var(--border-light) !important;
+  color: var(--text-primary) !important;
 }
 
-.data-table tr:hover {
-  background-color: var(--bg-secondary);
+.data-table tr:hover, .table tbody tr:hover {
+  background-color: var(--bg-secondary) !important;
 }
 
 /* Inputs e selects */

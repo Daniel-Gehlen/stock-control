@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -7,6 +8,7 @@ using StockControl.API.Data;
 using StockControl.API.Middleware;
 using StockControl.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -14,9 +16,17 @@ namespace StockControl.API
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<StockControlContext>();
+            services.AddDbContext<StockControlContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddScoped<EstoqueService>();
             services.AddScoped<AuthService>();
@@ -67,6 +77,13 @@ namespace StockControl.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // Criar banco de dados automaticamente
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<StockControlContext>();
+                context.Database.EnsureCreated();
+            }
+
             // Middleware de tratamento de exceções
             app.UseMiddleware<ExceptionMiddleware>();
 
