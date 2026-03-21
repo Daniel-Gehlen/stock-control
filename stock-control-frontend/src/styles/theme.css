@@ -46,7 +46,7 @@
   /* Cores de fundo escuras com melhor contraste */
   --bg-primary: #0d1117;
   --bg-secondary: #161b22;
-  --bg-tertiary: #21262d;
+  --bg-tertiary: #2d333b;
 
   /* Cores de texto claras com contraste máximo */
   --text-primary: #f0f6fc;
@@ -76,7 +76,7 @@
 
     --bg-primary: #0d1117;
     --bg-secondary: #161b22;
-    --bg-tertiary: #21262d;
+    --bg-tertiary: #2d333b;
 
     --text-primary: #f0f6fc;
     --text-secondary: #c9d1d9;
@@ -103,7 +103,7 @@
 
   --bg-primary: #0d1117;
   --bg-secondary: #161b22;
-  --bg-tertiary: #21262d;
+  --bg-tertiary: #2d333b;
 
   --text-primary: #f0f6fc;
   --text-secondary: #c9d1d9;
